@@ -503,7 +503,7 @@ export default function PlataformaTrabajos({ role, studentId, teacherId, onSubCr
       </div>
 
       {(isTeacher || isStaff) && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
+        <div className="rg-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
           <StatCard label="Trabajos publicados" value={trabajos.length} icon="▦" tint="var(--secondary)" />
           <StatCard label="Anuncios" value={anuncios.length} icon="▥" tint="var(--gold-light)" />
           <StatCard label="Entregas recibidas" value={`${entregadas}/${entregasTotales}`} icon="✓" tint="#f0faf4" />
@@ -1202,7 +1202,7 @@ function NuevoTrabajoModal({
           />
           <CharCounter length={titulo.length} max={TITLE_MAX} />
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+        <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <select
             value={tipo}
             onChange={(e) => setTipo(e.target.value as typeof tipo)}

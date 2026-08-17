@@ -20,7 +20,7 @@ export default function Grupos({ onOpenGroup }: Props) {
         </Button>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+      <div className="rg-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
         {GROUPS_DATA.map((g) => {
           const alumnos = studentsByGroup(g.nombre)
           const promedio = groupAverage(g.nombre)
@@ -32,7 +32,7 @@ export default function Grupos({ onOpenGroup }: Props) {
               </div>
               <h3 style={{ margin: '8px 0 2px', fontSize: 18 }}>{g.nombre}</h3>
               <span style={{ color: 'var(--muted-foreground)', fontSize: 12 }}>{g.periodo}</span>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, margin: '16px 0' }}>
+              <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, margin: '16px 0' }}>
                 <div style={{ background: '#f8fafb', borderRadius: 10, padding: 10 }}>
                   <small style={{ display: 'block', color: 'var(--muted-foreground)', fontSize: 10 }}>Alumnos</small>
                   <b style={{ fontSize: 15 }}>{alumnos.length}</b>

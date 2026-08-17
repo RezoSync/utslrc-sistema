@@ -487,7 +487,7 @@ function InventoryFormModal({
           <Input value={nombre} onChange={setNombre} placeholder="Laptop Dell Inspiron 15" style={{ width: '100%' }} />
         </Field>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+        <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
           <Field label="Categoría *">
             <Input value={categoria} onChange={setCategoria} placeholder="Cómputo, Redes, Laboratorio…" style={{ width: '100%' }} />
           </Field>
@@ -496,7 +496,7 @@ function InventoryFormModal({
           </Field>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+        <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
           <Field label="Ubicación">
             <Input value={ubicacion ?? ''} onChange={setUbicacion} placeholder="Lab TI A-204" style={{ width: '100%' }} />
           </Field>

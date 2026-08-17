@@ -161,7 +161,7 @@ export default function Biblioteca({ role }: Props) {
 
   return (
     <div style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 20 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: puedeVerPrestamos ? 'repeat(4, 1fr)' : 'repeat(2, 1fr)', gap: 14 }}>
+      <div className="rg-4" style={{ display: 'grid', gridTemplateColumns: puedeVerPrestamos ? 'repeat(4, 1fr)' : 'repeat(2, 1fr)', gap: 14 }}>
         <StatCard label="Títulos en acervo" value={BOOKS.length} icon="▨" tint="var(--secondary)" />
         <StatCard label="Ejemplares totales" value={BOOKS.reduce((s, l) => s + l.ejemplares, 0)} icon="▧" tint="var(--gold-light)" />
         {puedeVerPrestamos && (

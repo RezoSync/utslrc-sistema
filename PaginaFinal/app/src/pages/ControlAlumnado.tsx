@@ -416,7 +416,7 @@ function StudentFormModal({
           <Input value={nombre} onChange={setNombre} placeholder="APELLIDO APELLIDO NOMBRE(S)" style={{ width: '100%' }} />
         </Field>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+        <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
           <Field label="Expediente">
             <Input value={expediente} onChange={setExpediente} placeholder="23304059" style={{ width: '100%' }} />
           </Field>
@@ -433,7 +433,7 @@ function StudentFormModal({
           )}
         </Field>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+        <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
           <Field label="Correo institucional">
             <Input value={email} onChange={setEmail} placeholder="alumno@utslrc.edu.mx" style={{ width: '100%' }} />
           </Field>

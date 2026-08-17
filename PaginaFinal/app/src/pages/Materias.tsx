@@ -206,7 +206,7 @@ function SubjectFormModal({
   return (
     <Modal title="Nueva materia" onClose={onClose} width={480}>
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+        <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
           <Field label="Clave *">
             <Input value={id} onChange={setId} placeholder="MAT10-81" style={{ width: '100%' }} />
           </Field>

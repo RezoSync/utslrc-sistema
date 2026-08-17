@@ -81,7 +81,7 @@ export default function Asistencia({ role, studentId, teacherId }: Props) {
         )}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
+      <div className="rg-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
         <StatCard label="Promedio" value={`${promedio}%`} icon="◷" tint="var(--secondary)" />
         <StatCard label="Faltas" value={faltas} icon="◈" tint="#fde9e9" />
         <StatCard label="Retardos" value={retardos} icon="▥" tint="var(--gold-light)" />
@@ -272,7 +272,7 @@ function TomarAsistenciaModal({
   return (
     <Modal title={`Tomar asistencia · ${grupo}`} onClose={onClose} width={640}>
       <div style={{ display: 'grid', gap: 14 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+        <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <select
             value={subjectId}
             onChange={(e) => setSubjectId(e.target.value)}

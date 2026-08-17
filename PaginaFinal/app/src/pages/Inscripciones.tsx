@@ -62,7 +62,7 @@ export default function Inscripciones() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
+      <div className="rg-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
         <StatCard label="Alumnos activos" value={totalActivos} icon="◍" tint="var(--secondary)" />
         <StatCard label="Carreras con inscritos" value={porCarrera.filter((c) => c.count > 0).length} icon="◈" tint="#eff6ff" />
         <StatCard label="Carrera con más inscritos" value={maxCarrera ? `${maxCarrera.count} · ${maxCarrera.siglas}` : '—'} icon="◔" tint="var(--gold-light)" />

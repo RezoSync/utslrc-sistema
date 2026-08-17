@@ -143,7 +143,7 @@ export default function Kardex({ role, studentId }: Props) {
 
           {kardex && (
             <div style={{ display: 'grid', gap: 22 }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 12 }}>
+              <div className="rg-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 12 }}>
                 <SummaryStat label="Promedio general" value={kardex.resumen.promedioGeneral.toFixed(1)} />
                 <SummaryStat label="Materias cursadas" value={String(kardex.resumen.totalMaterias)} />
                 <SummaryStat label="Acreditadas" value={String(kardex.resumen.acreditadas)} />

@@ -255,7 +255,7 @@ function TeacherFormModal({
           <Input value={nombre} onChange={setNombre} placeholder="Ing. Nombre Apellido Apellido" style={{ width: '100%' }} />
         </Field>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+        <div className="rg-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
           <Field label="Grado académico">
             <Input value={grado} onChange={setGrado} placeholder="Maestría en TI" style={{ width: '100%' }} />
           </Field>

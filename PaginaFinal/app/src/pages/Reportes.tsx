@@ -141,7 +141,7 @@ export default function Reportes() {
         <p style={{ color: 'var(--muted-foreground)', fontSize: 13, margin: '6px 0 0' }}>Reportes académicos y administrativos disponibles para exportar.</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
+      <div className="rg-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
         {REPORTS.map((r) => (
           <Card key={r.id}>
             <h3 style={{ margin: '0 0 8px', fontSize: 15 }}>{r.title}</h3>
@@ -177,7 +177,7 @@ export default function Reportes() {
 
       <Card>
         <h3 style={{ margin: '0 0 14px', fontSize: 15 }}>Vista previa · Académico general</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 14 }}>
+        <div className="rg-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 14 }}>
           <MiniStat label="Alumnos" value={STUDENTS.length} />
           <MiniStat label="Docentes" value={TEACHERS.length} />
           <MiniStat label="Grupos" value={GROUPS.length} />

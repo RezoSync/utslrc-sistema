@@ -394,6 +394,30 @@ html, body, #root {
   overflow-wrap: anywhere;
 }
 
+/* FIX (responsive - panel interno): varias páginas del sistema (Materias,
+   Reportes, PlataformaTrabajos, Kardex, Inscripciones, Inventarios, Docentes,
+   Grupos, Asistencia, Carreras, Biblioteca, ControlAlumnado) arman grids de
+   2, 3 o 4 columnas fijas por inline style, sin ningún colapso para pantallas
+   angostas. Se agregan clases utilitarias (rg-2/rg-3/rg-4) que se aplican
+   junto al inline style existente: el inline define la versión de escritorio
+   y estas reglas la sobreescriben con !important en los breakpoints móviles. */
+.rg-2, .rg-3, .rg-4 { min-width: 0; }
+.rg-2 > *, .rg-3 > *, .rg-4 > * { min-width: 0; }
+
+@media (max-width: 900px) {
+  .rg-3, .rg-4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 560px) {
+  .rg-2, .rg-3, .rg-4 { grid-template-columns: 1fr !important; }
+}
+
+/* FIX (responsive - Kardex): el layout de dos columnas (panel de alumno +
+   contenido) no tenía colapso a una sola columna en pantallas angostas,
+   por lo que la columna de 280px comprimía el contenido principal. */
+@media (max-width: 760px) {
+  .kardex-layout { grid-template-columns: 1fr !important; }
+}
+
 @media print {
   @page { size: landscape; margin: 10mm; }
   html, body, #root { height: auto; background: #fff; }
