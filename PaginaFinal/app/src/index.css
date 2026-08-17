@@ -283,6 +283,117 @@ input:focus, select:focus, textarea:focus {
   }
 }
 
+/* FIX (responsive - portal público): las secciones del landing usaban grids fijos
+   (2, 3 y 4 columnas) definidos en inline style, sin ningún colapso a 1 columna en
+   pantallas angostas. Esto hacía que el texto se amontonara/desbordara en celular.
+   Se reordenan a 1 (o 2) columnas por breakpoint, se ajustan alturas mínimas de
+   imágenes con vw fijo (680px) que eran demasiado altas en móvil, y se corrige el
+   patrón de bordes de la franja de estadísticas para el layout de 2 columnas. */
+@media (max-width: 900px) {
+  .public-hero,
+  .public-institucion,
+  .public-academica-hero {
+    grid-template-columns: 1fr !important;
+  }
+  .public-hero__img,
+  .public-institucion img,
+  .public-academica-hero__img {
+    min-height: 360px !important;
+  }
+  .public-mvv,
+  .public-docentes-grid,
+  .public-vinculacion-grid,
+  .public-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .public-careers-grid,
+  .public-vida-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .public-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .public-stats__item:nth-child(2) {
+    border-left: none !important;
+  }
+  .public-stats__item:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+  }
+  .public-stats__item:nth-child(3) {
+    border-left: none !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .public-careers-grid,
+  .public-vida-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* FIX (responsive - overflow horizontal, causa raíz): los items de un CSS Grid
+   tienen por defecto min-width: auto, que equivale al ancho "min-content" de
+   su contenido. Cuando ese contenido no puede partirse en varias líneas
+   (un correo como "contacto@utslrc.edu.mx", una URL, una palabra larga sin
+   espacios) el track del grid se expande más allá del contenedor, y como esas
+   secciones son hijas directas de la página (no de un contenedor con overflow
+   controlado), TODA la página se vuelve más ancha que el viewport. Eso es lo
+   que se ve en las capturas: el sitio queda con scroll horizontal y aparece
+   una franja gris/blanca a la derecha en unas secciones (las que sí caben)
+   mientras otras (footer, vinculación, docentes, stats) se recortan o
+   desbordan. Los `grid-template-columns: 1fr !important` que ya agregamos
+   arriba no alcanzan a corregir esto porque el problema no es el número de
+   columnas sino el tamaño mínimo de cada una. Se soluciona forzando
+   min-width: 0 en los grids y en sus hijos directos, y agregando
+   overflow-x: hidden como red de seguridad a nivel de página. */
+html, body, #root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.public-hero,
+.public-institucion,
+.public-academica-hero,
+.public-mvv,
+.public-docentes-grid,
+.public-vinculacion-grid,
+.public-footer-grid,
+.public-careers-grid,
+.public-vida-grid,
+.public-stats {
+  min-width: 0;
+}
+
+.public-hero > *,
+.public-institucion > *,
+.public-academica-hero > *,
+.public-mvv > *,
+.public-docentes-grid > *,
+.public-vinculacion-grid > *,
+.public-footer-grid > *,
+.public-careers-grid > *,
+.public-vida-grid > *,
+.public-stats > * {
+  min-width: 0;
+}
+
+.public-docentes-grid *,
+.public-footer-grid *,
+.public-vinculacion-grid * {
+  min-width: 0;
+}
+
+/* Los correos y dominios (sin espacios) son el contenido que más comúnmente
+   dispara el desborde descrito arriba: se les permite partirse en cualquier
+   punto en vez de forzar el ancho de su columna. */
+.public-footer-grid a,
+.public-footer-grid li,
+.public-footer-grid p,
+.public-footer-grid span {
+  overflow-wrap: anywhere;
+}
+
 @media print {
   @page { size: landscape; margin: 10mm; }
   html, body, #root { height: auto; background: #fff; }
