@@ -1,0 +1,8 @@
+node_modules/
+dist/
+build/
+*.log
+.DS_Store
+
+# Descomenta esta línea si NO quieres subir los PDFs reales de entregas de alumnos:
+# backend/uploads/
