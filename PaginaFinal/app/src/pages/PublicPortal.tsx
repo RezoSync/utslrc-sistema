@@ -174,7 +174,7 @@ export default function PublicPortal({ onGoLogin, stats }: Props) {
       )}
 
       {/* Hero — imagen grande, tipografía enorme, minimalista */}
-      <header id="inicio" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', background: '#fff' }}>
+      <header id="inicio" className="public-hero" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', background: '#fff' }}>
         <div style={{ padding: '8vw 5vw', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--primary-dark)' }}>
             UTSLRC
@@ -204,20 +204,21 @@ export default function PublicPortal({ onGoLogin, stats }: Props) {
         <img
           src={heroImg}
           alt="Campus UTSLRC"
+          className="public-hero__img"
           style={{ width: '100%', minHeight: 680, objectFit: 'cover', display: 'block' }}
         />
       </header>
 
       {/* Estadísticas — minimalista, sin tarjetas, solo números enormes */}
       <div style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', backgroundColor: 'var(--navy)', backgroundImage: `linear-gradient(105deg,rgba(8,83,63,.95),rgba(14,133,91,.83)), url(${comunidadUtslrcImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }}>
+        <div className="public-stats" style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }}>
           {[
             ['Alumnos activos', String(stats.totalStudents)],
             ['Grupos', String(stats.totalGroups)],
             ['Promedio general', promedioGlobal],
             ['Carreras', String(stats.totalCareers || CAREERS.length)],
           ].map(([label, val], i) => (
-            <div key={label} style={{ padding: '44px 28px', borderLeft: i === 0 ? 'none' : '1px solid rgba(255,255,255,.14)' }}>
+            <div key={label} className="public-stats__item" style={{ padding: '44px 28px', borderLeft: i === 0 ? 'none' : '1px solid rgba(255,255,255,.14)' }}>
               <b style={{ display: 'block', fontSize: 'clamp(34px,3.6vw,52px)', fontWeight: 900, color: '#fff', lineHeight: 1 }}>{val}</b>
               <span style={{ fontSize: 12, color: '#a9c2cb', textTransform: 'uppercase', letterSpacing: '.06em', fontWeight: 700 }}>{label}</span>
             </div>
@@ -228,6 +229,7 @@ export default function PublicPortal({ onGoLogin, stats }: Props) {
       {/* Institución — una sola imagen grande + texto grande, estilo editorial */}
       <section
         id="institucion"
+        className="public-institucion"
         style={{
           maxWidth: 1600,
           margin: '0 auto',
@@ -266,7 +268,7 @@ export default function PublicPortal({ onGoLogin, stats }: Props) {
 
       {/* Misión / Visión / Valores — minimalista, sin tarjetas */}
       <section style={{ borderTop: '1px solid var(--border)', background: '#fff' }}>
-        <div style={{ maxWidth: 1400, margin: '0 auto', padding: '5vw', display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '3vw' }}>
+        <div className="public-mvv" style={{ maxWidth: 1400, margin: '0 auto', padding: '5vw', display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '3vw' }}>
           {[
             ['Misión', 'Formar profesionales competentes y éticos que impulsen el desarrollo tecnológico y económico de la región.'],
             ['Visión', 'Ser una universidad tecnológica de referencia nacional por la calidad de sus programas y su vinculación con la industria.'],
@@ -282,8 +284,8 @@ export default function PublicPortal({ onGoLogin, stats }: Props) {
 
       {/* Oferta académica — imagen grande a la izquierda, título enorme a la derecha */}
       <section id="academica" style={{ borderTop: '1px solid var(--border)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
-          <img src={OfertaImg} alt="Estudiantes UTSLRC" style={{ width: '100%', minHeight: 680, objectFit: 'cover', display: 'block' }} />
+        <div className="public-academica-hero" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+          <img src={OfertaImg} alt="Estudiantes UTSLRC" className="public-academica-hero__img" style={{ width: '100%', minHeight: 680, objectFit: 'cover', display: 'block' }} />
           <div style={{ backgroundColor: 'var(--navy)', backgroundImage: `linear-gradient(120deg,rgba(8,83,63,.94),rgba(14,133,91,.78)), url(${ofertaVirtualImg})`, backgroundSize: 'cover', backgroundPosition: 'center', color: '#fff', display: 'flex', alignItems: 'center', padding: '5vw' }}>
             <h2 style={{ fontSize: 'clamp(40px,5vw,68px)', fontWeight: 900, letterSpacing: '-.02em', lineHeight: 1, margin: 0 }}>
               Oferta
@@ -294,6 +296,7 @@ export default function PublicPortal({ onGoLogin, stats }: Props) {
         </div>
         <div style={{ maxWidth: 1600, margin: '0 auto', padding: '5vw' }}>
           <div
+            className="public-careers-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(4, 1fr)',
@@ -375,7 +378,7 @@ export default function PublicPortal({ onGoLogin, stats }: Props) {
             Más allá del aula
           </h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }}>
+        <div className="public-vida-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }}>
           {VIDA_ESTUDIANTIL.map(({ title, desc, img }) => (
             <div key={title}>
               <img
@@ -401,7 +404,7 @@ export default function PublicPortal({ onGoLogin, stats }: Props) {
           <h2 style={{ fontSize: 'clamp(40px,5vw,64px)', fontWeight: 900, letterSpacing: '-.02em', margin: '10px 0 40px', color: 'var(--navy)' }}>
             Cuerpo académico
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: 'var(--border)' }}>
+          <div className="public-docentes-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: 'var(--border)' }}>
             {TEACHERS.slice(0, 6).map((t) => (
               <div key={t.id} style={{ background: '#fff', padding: 26, display: 'flex', gap: 16, alignItems: 'center' }}>
                 <div style={{ width: 52, height: 52, background: 'var(--navy)', color: '#fff', display: 'grid', placeItems: 'center', fontWeight: 800, fontSize: 14, flexShrink: 0 }}>
@@ -419,7 +422,7 @@ export default function PublicPortal({ onGoLogin, stats }: Props) {
 
       {/* Vinculación / Directorio / Transparencia */}
       <section id="vinculacion" style={{ borderTop: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: 1400, margin: '0 auto', padding: '5vw', display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '3vw' }}>
+        <div className="public-vinculacion-grid" style={{ maxWidth: 1400, margin: '0 auto', padding: '5vw', display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '3vw' }}>
           {[
             ['Vinculación', 'Convenios con empresas del sector TI para estadías, estancias y bolsa de trabajo.'],
             ['Directorio', 'Rectoría, Dirección Académica, Servicios Escolares y Coordinaciones de carrera.'],
@@ -435,7 +438,7 @@ export default function PublicPortal({ onGoLogin, stats }: Props) {
 
       {/* Contacto */}
       <footer id="contacto" style={{ backgroundColor: 'var(--navy)', backgroundImage: `linear-gradient(105deg,rgba(8,79,62,.96),rgba(10,112,79,.90)), url(${campusUtslrc})`, backgroundSize: 'cover', backgroundPosition: 'center', color: '#d7e5e9', padding: '5vw 5vw 40px' }}>
-        <div style={{ maxWidth: 1400, margin: 'auto', display: 'grid', gridTemplateColumns: '1.3fr 1fr 1fr 1fr', gap: 44 }}>
+        <div className="public-footer-grid" style={{ maxWidth: 1400, margin: 'auto', display: 'grid', gridTemplateColumns: '1.3fr 1fr 1fr 1fr', gap: 44 }}>
           <div>
             <h4 style={{ color: '#fff', fontWeight: 900, marginTop: 0, fontSize: 16 }}>UTSLRC</h4>
             <p style={{ fontSize: 13, lineHeight: 1.7, color: '#b8ccd3' }}>
